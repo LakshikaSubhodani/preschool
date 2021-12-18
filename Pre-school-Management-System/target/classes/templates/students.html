@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Pre-school Management</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" 
+integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" 
+crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+	
+		<div class="row">
+			<h1>Student List</h1>		
+		</div>
+				<div class="row">
+			<div>
+				<a th:href="@{/students/new}" class="btn btn-primary btn-sm mb-3">Add New Student</a>
+			</div>
+		</div>
+		
+		<div id="student_table">
+			<table class="table table-striped table-bordered">
+				<thead class=" table-dark">
+					<tr>
+						<th>Registration Number</th>
+						<th>Full Name</th>
+						<th>Name with initials</th>
+						<th>Birthday</th>
+						<th>Gender</th>
+						<th>Present Address</th>
+						<th>Special Attention</th>
+						<th>Class</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="student:${students}">
+						<td th:text="${student.std_reg_No}"></td>
+						<td th:text="${student.std_fullName}"></td>
+						<td th:text="${student.std_initialName}"></td>
+						<td th:text="${student.std_DOB}"></td>
+						<td th:text="${student.std_gender}"></td>
+						<td th:text="${student.std_presentAddress}"></td>
+						<td th:text="${student.std_specialAttention}"></td>
+						<td th:text="${student.std_class}"></td>
+						<td>
+							<a th:href="@{/students/edit{std_reg_No}(id=${student.std_reg_No})}" class="btn btn-primary">Update</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		
+		</div>
+	</div>	
+
+</body>
+</html>
+
+
+	

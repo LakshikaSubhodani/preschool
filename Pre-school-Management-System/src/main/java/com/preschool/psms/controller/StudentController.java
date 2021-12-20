@@ -22,14 +22,14 @@ public class StudentController {
 	@GetMapping("students")
 	public String listStudents(Model model) {
 		model.addAttribute("students", studentService.getAllStudents());
-		return "students";
+		return "student/students";
 	}
 	
 	@GetMapping("students/new")
 	public String createStudentForm(Model model) {
 		Student student=new Student();
 		model.addAttribute("student",student);
-		return "create_student";	
+		return "student/create_student";	
 	}
 	
 	@PostMapping("/students")
@@ -41,7 +41,7 @@ public class StudentController {
 	@GetMapping("/students/edit{std_reg_No}")
 	public String editStudentDetails(@PathVariable String std_reg_No, Model model) {
 		model.addAttribute("student",studentService.getStudentById(std_reg_No));
-		return "edit_student";
+		return "student/edit_student";
 		}
 	
 }
